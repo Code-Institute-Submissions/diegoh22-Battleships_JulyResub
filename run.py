@@ -1,54 +1,57 @@
 
 
+"""
+A simple BattleShip game
+
+"""
 from random import randint
 
-GAME_BOARD = [[' '] * 8 for x in range(8)]
-GUESS_BOARD = [[' '] * 8 for x in range(8)]
-letters_to_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7}
+board = []
+
+for x in range(6):
+    board.append(["O"] * 6)
 
 
 def print_board(board):
-    print(' A B C D E F G H')
-    print(' ---------------')
-    row_number = 1
     for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
-        row_number += 1
+        print((" ").join(row))
 
 
-def create_ships(board):
-    for ship in range(5):
-        ship_row, ship_column = randint(0, 7), randint(0, 7)
-     while board[ship_row] [ship_column] == 'X':
-        ship_row, ship_column = randint(0,7), randint(0,7)
-        board[ship_row] [ship_column] = 'X'
+person = input('Enter your name: ')
+print('Hello', person)
+print("Let's play Battleship!")
+print_board(board)
 
 
-def get_ship_location():
-    row = input('Please enter a ship row 1-8')
-    while row not in '12345678':
-        print('Please enter a valid row')
-        row = input('Please enter a ship row 1-8')
-    column = input('Please enter a ship column A-H').upper()
-    while column not in 'ABCDEFGH':
-        print('Please enter a valid column')
-        column = input('Please enter a ship column A-H').upper()
-    return int(row) - 1, letters_to_numbers[column]        
+def random_row(board):
+    return randint(0, len(board) - 1)
 
 
-def cout_hit_ships(board):
-    count = 0
-    for row in board:
-        for column in board:
-            if column == 'X':
-                count += 1
-    return count            
+def random_col(board):
+    return randint(0, len(board[0]) - 1)
 
 
-create_ships(GAME_BOARD)
-turns = 10
-print_board(GAME_BOARD)
-print_board(GUESS_BOARD)
+ship_row = random_row(board)
+ship_col = random_col(board)
 
-#while turns > 0:
+for turn in range(8):
+    print("Turn"), turn
+    guess_row = int(input("Guess Row:"))
+    guess_col = int(
+        input("Guess Col:"))
 
+    if guess_row == ship_row and guess_col == ship_col:
+        print("Congratulations! You sunk my battleship!")
+        break
+    else:
+        if(guess_row < 0 or guess_row > 5) or (guess_col < 0 or guess_col > 5):
+            print("Oops, that's not even in the ocean.")
+        elif(board[guess_row][guess_col] == "X"):
+            print("You guessed that one already.")
+        else:
+            print("You missed my battleship!")
+            board[guess_row][guess_col] = "-"
+    if turn == 8:
+        print("You run out of Turns Game is Over")
+    turn = + 1
+    print_board(board)
