@@ -2,7 +2,7 @@
 from random import randint
 import os
 p1 = str(input("Enter your nickname : "))
-#Ship Class
+# Ships
 class Ship:
   
   def __init__(self, size, orientation, location):
@@ -66,22 +66,23 @@ class Ship:
     return True
 
   
-#Settings Variables
+# Settings Variables
+
 row_size = 9 #number of rows
 col_size = 9 #number of columns
 num_ships = 4
 max_ship_size = 5
 min_ship_size = 2
-num_turns = 5
+num_turns = 10
 
-#Create lists
+# Create lists
 ship_list = []
 
 board = [[0] * col_size for x in range(row_size)]
 
 board_display = [["O"] * col_size for x in range(row_size)]
 
-#Functions
+# Game Fuctions
 def print_board(board_array):
   print("\n  " + " ".join(str(x) for x in range(1, col_size + 1)))
   for r in range(row_size):
