@@ -39,7 +39,8 @@ class Ship:
                     'col': location['col']})
         else:
             raise IndexError("Row is out of range.")
-    else:
+
+        else:
             raise IndexError("Column is out of range.")
 
     if self.filled():
