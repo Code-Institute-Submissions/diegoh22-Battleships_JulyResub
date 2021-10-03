@@ -2,7 +2,12 @@
 
 from random import randint
 import os
-p1 = str(input("Enter your nickname : "))
+'''
+
+Game startin fucntion
+
+'''
+p1 = str(input("Lest play Enter your nickname : "))
 os.system('clear')
 board = []
 
@@ -18,6 +23,12 @@ def print_board(board):
 print("Let's play Battleship!")
 print_board(board)
 
+'''
+
+Pick the randon row and col
+
+'''
+
 
 def random_row(board):
     return randint(0, len(board) - 1)
@@ -30,7 +41,11 @@ def random_col(board):
 ship_row = random_row(board)
 ship_col = random_col(board)
 
+'''
 
+Guess the ships and  end game fuction
+
+'''
 for turn in range(5):
     guess_row = int(input("Guess Row:"))
     guess_col = int(input("Guess Col:"))
@@ -52,7 +67,11 @@ for turn in range(5):
             print("Game Over")
             print("the real ship location is")
 
+'''
 
+Gamen over call
+
+'''
 if ship_col:
     print("You missed my battleship Game Over")
 
