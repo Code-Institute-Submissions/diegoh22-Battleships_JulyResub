@@ -1,7 +1,9 @@
 
 
 from random import randint
-
+import os
+p1 = str(input("Enter your nickname : "))
+os.system('clear')
 board = []
 
 for x in range(5):
@@ -10,7 +12,7 @@ for x in range(5):
 
 def print_board(board):
     for row in board:
-        print(" ").join(row)
+        print(" ".join(row))
 
 
 print("Let's play Battleship!")
@@ -49,6 +51,7 @@ for turn in range(5):
         if turn > 4:
             print("Game Over")
             print("the real ship location is")
+
 
 if ship_col:
     print("You missed my battleship Game Over")
