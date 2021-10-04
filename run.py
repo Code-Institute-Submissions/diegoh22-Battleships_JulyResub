@@ -25,7 +25,7 @@ print_board(board)
 
 '''
 
-Pick the randon row and col
+place the ships row and col
 
 '''
 
