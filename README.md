@@ -1,7 +1,7 @@
 # Single Battleships
 ![Screenshot 2021-10-09 181748](https://user-images.githubusercontent.com/83575427/136668317-77d4dd25-c86a-44e1-beac-5af03ee35b3a.png)
 ### User can will add 5 ships ramdonmly and the you will have to sink them.
-
+https://single-battleships.herokuapp.com/
 
 # How to play
 
