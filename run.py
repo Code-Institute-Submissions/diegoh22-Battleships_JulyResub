@@ -2,7 +2,10 @@
 # A board is a list of rows, and each row is a list
 # of cells with either an 'X' (a battleship)
 # or a blank ' ' (water)
+print("Welcome to Battleship, Please follow the rules and enjoy of today game")
+print('Ideas are ideas, check the Ships en Sunk them')
 p1 = str(input("Enter your nickname : "))
+
 
 board = [
     [' ', ' ', ' ', ' ', ' '],
