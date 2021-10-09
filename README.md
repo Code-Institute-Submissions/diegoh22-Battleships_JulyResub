@@ -1,31 +1,65 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Single BattleshipsS
 
-Welcome diegoh22,
+### User can will add 5 ships ramdonmly and the you will have to sink them.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
-## Reminders
+# How to play
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+### In this version the game will ask for you name firts and after will ask you to place 5 ships on the board, the will hidde ramdomly and you have to find them.
+### In thes game you only finish after you Hit the 5 ramdon ships. is a bit boring because you always win, however is the best i could do this time. lot of improments to make.
 
-## Creating the Heroku app
+# Features
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Exiting Features
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Randon Board Generation
+  ### Ships are place buy you and the ramdonly place
+  ### You cannot see where the ships are place
+  ### No scoret system (to be improve)
+# Input validation and erros-cheking
+  ### only capital letters
+  ### you must enter 1 number and 1 letter
+  ### you cannot enter the same guess twice
+  ### nothing outside the grid of 5
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# Furture Features
+  ### Allow playes to play with 2 boards
+  ### Play agains the computer
+  ### Maximo amout of turns
+  ### Ships larger than 1x1
+  ### Welcome messager more apealing 
+  ### Play again button
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+# Data Model
+  ### Is a very simple board and game nothing i will decide no to add class this time as the code was Bugging the whole time and i need to learn a bit more about classes and other python ideas and data
 
-Connect your GitHub repository and deploy as normal.
+# Testing
+  #### Passed the code through a PEP* linter and confirmed there no problems
+  ### Tested in my local terminal and the code isntitute Heroki terminal
 
-## Constraints
+# Bugs
+ ### The improve part of the game was way to many of them so i have to simplyfied for now.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+# Remaining Bugs
+
+ ### No remainding bugs in this code
+
+
+# Valitor Testing 
+  ### PeP8
+  ### No errors
+
+# Deployment
+### This project was deployrd usin code institute Heroku
+
+# Steps for deployment:
+### fork or clone this repository
+### Create a New Heroku app
+### Set the Buildbacks to python and NodeJA ins that orde
+### Link The Heroku app to the repositoy
+### Click on Deploy
+
+# Credits
+
+### To all code institute Studen support
