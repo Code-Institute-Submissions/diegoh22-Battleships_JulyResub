@@ -26,5 +26,24 @@ class Board:
         self.ships = []
         self.populate = []
 
+    def print_board(self):
+        
+        print(f"{self.name}'s Board:")
+        for row in self.board:
+            print("".join(row))
+
+    def populate_board(self):
+        board = [["." for x in range(self.size)] for y in range(self.size)]
+        self.board = board
+
+        for _ in range(self.num_ships):
+            x, y = rand_coordinate(self.size)
+            while (x, y) in self.ships:
+                x, y = rand_coordinate(self.size)  
+            self.num_ships.append((x, y))  
+            if self.player:
+                self.board[x][y] = "&"     
+
+
 
 
