@@ -12,9 +12,9 @@ class board:
         self.populate()
 
 
-    def view_board(self):
+    def view(self):
         
-        view_board(f"{self.name}'s Board:")
+        view(f"{self.name}'s Board:")
         for row in self.board:
             print(" ".join(row))   
 
@@ -48,3 +48,29 @@ class board:
         if (x, y) in self.guesses:
             return True
         return False
+
+    def last_guess(self):
+        """
+        Returns the last guess performed on the board
+        """
+        return self.guesses[-1]
+
+
+def __init__(self, size, num_ships):
+        self.size = size
+        self.num_ships = num_ships
+        self.scores = {"computer": 0, "player": 0}   
+        
+def start(self):
+        """
+        Show welcome screen, initialize the boards and start the game
+        """
+        self.show_info()
+        tmp_board = Board(self.size, self.num_ships, "Computer", player=False)
+        self.computer_board = tmp_board
+        player_name = input("Please enter your name:\n")
+        print("-" * 45)
+        tmp_board = Board(self.size, self.num_ships, player_name, player=True)
+        self.player_board = tmp_board
+
+        self.play()
