@@ -26,6 +26,7 @@ class Board:
         self.ships = []
         self.guesses = []
         self.populate()
+        
 
     def print(self):
         
@@ -74,7 +75,7 @@ class Game:
         self.size = size
         self.num_ships = num_ships
         self.scores = {"computer": 0, "player": 0}
-        self.turns = turns
+        
 
     def start(self):
         
@@ -92,25 +93,20 @@ class Game:
         
         while True:
             self.print_boards()
-            if self.game_over():
-                print("Game over!")
-                break
 
+            # player guess
             x, y = self.make_guess()
             while not self.valid_guess(x, y):
                 x, y = self.make_guess()
-            player_shot = self.computer_board.guess(x, y)
+            player_hit = self.computer_board.guess(x, y)
 
+            # Computer guess
             x, y = random_coordinate(self.size)
             while self.player_board.already_guessed(x, y):
                 x, y = random_coordinate(self.size)
-            computer_shot = self.player_board.guess(x, y)
+            computer_hit = self.player_board.guess(x, y)
 
-            self.round_tally(player_shot, computer_shot)
-            choice = input("Type \"quit\" to quit or anything else " +
-                           "to continue.\n")
-            if choice == "quit":
-                break
+              
 
     def make_guess(self):
        
@@ -150,41 +146,50 @@ class Game:
             return True
         return False
 
+
+
     def round_tally(self, player_shot, computer_shot):
-       
-        print("-" * 45)
-        print(f"{self.player_board.name} guessed " +
+        turns = 10
+        while turns > 0:
+            print("-" * 45)
+            print(f"{self.player_board.name} guessed " +
               f"{self.computer_board.last_guess()}")
-        if player_shot:
-            self.scores["player"] += 1
+            if player_shot:
+               self.scores["player"] += 1
             print("That was a hit!")
+            turns -= 1
+            
+            break
         else:
             print("That was a miss!")
         print(f"Computer guessed {self.player_board.last_guess()}")
         if computer_shot:
             self.scores["computer"] += 1
             print("That was a hit!")
+            turns -= 1
         else:
             print("That was a miss!")
         print("\nAfter this round, the scores are:")
         print(f"{self.player_board.name}:" +
               f"{self.scores['player']} . Computer:{self.scores['computer']}")
         print("-" * 45)
+        turns -= 1
+        if turns == 0:
+            print("You run out of tuner Game Over")
 
-        if turns:
-            self.turns["Turns"] -= 1
 
     def show_info(self):
         
         print("-" * 45)
         print(" Welcome to the great battle of BATTLESHIPS!!")
-        print(f" Board Size: {self.size}. Number of ships: {self.num_ships}")
+        print(f" Board Size: {self.size}. Number of ships: {self.num_ships}.")
+        print(" You have 10 tunrs to the sunk 5 shipts")
         print(" Top left corner is row: 0, col: 0")
         print("-" * 45)
+       
 
 
 # Ask the user what grid size to use, validate the size, then start a new game
-while
 
-game = Game(size=10, num_ships=5)
+game = Game(size=10, num_ships=5,)
 game.start()
