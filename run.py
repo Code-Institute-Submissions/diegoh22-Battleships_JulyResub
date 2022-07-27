@@ -90,9 +90,10 @@ class Game:
         self.play()
 
     def play(self):
-        
+        tunrs = 10
         while True:
             self.print_boards()
+            break
 
             # player guess
             x, y = self.make_guess()
@@ -100,14 +101,22 @@ class Game:
                 x, y = self.make_guess()
             player_hit = self.computer_board.guess(x, y)
 
-            # Computer guess
+            # computer guess
             x, y = random_coordinate(self.size)
             while self.player_board.already_guessed(x, y):
                 x, y = random_coordinate(self.size)
             computer_hit = self.player_board.guess(x, y)
 
-              
+            # end of round
+            self.round_tally(player_hit, computer_hit)
+            
+            if tunrs <= 1:
+                print("GAME OVER YOUR ARE OUT OF TUNRS")
+                break
+            print("You have" + str(tunrs) + "turns remaining")
+            tunrs -= 1
 
+                    
     def make_guess(self):
        
         while True:
@@ -148,35 +157,30 @@ class Game:
 
 
 
-    def round_tally(self, player_shot, computer_shot):
-        turns = 10
-        while turns > 0:
-            print("-" * 45)
-            print(f"{self.player_board.name} guessed " +
+    def round_tally(self, player_hit, computer_hit):
+        """
+        Output the scores after each round
+        """
+        print("-" * 45)
+        print(f"{self.player_board.name} guessed " +
               f"{self.computer_board.last_guess()}")
-            if player_shot:
-               self.scores["player"] += 1
+        if player_hit:
+            self.scores["player"] += 1
             print("That was a hit!")
-            turns -= 1
-            
-            break
         else:
             print("That was a miss!")
         print(f"Computer guessed {self.player_board.last_guess()}")
-        if computer_shot:
+        if computer_hit:
             self.scores["computer"] += 1
             print("That was a hit!")
-            turns -= 1
         else:
             print("That was a miss!")
         print("\nAfter this round, the scores are:")
         print(f"{self.player_board.name}:" +
               f"{self.scores['player']} . Computer:{self.scores['computer']}")
         print("-" * 45)
-        turns -= 1
-        if turns == 0:
-            print("You run out of tuner Game Over")
-
+            
+         
 
     def show_info(self):
         
