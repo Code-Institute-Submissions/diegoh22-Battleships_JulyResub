@@ -27,7 +27,6 @@ class Board:
         self.guesses = []
         self.populate()
         
-
     def print(self):
         
         print(f"{self.name}'s Board:")
@@ -70,13 +69,11 @@ class Board:
 
 class Game:
    
-
     def __init__(self, size, num_ships):
         self.size = size
         self.num_ships = num_ships
         self.scores = {"computer": 0, "player": 0}
         
-
     def start(self):
         
         self.show_info()
@@ -93,8 +90,7 @@ class Game:
         tunrs = 10
         while True:
             self.print_boards()
-            break
-
+            
             # player guess
             x, y = self.make_guess()
             while not self.valid_guess(x, y):
@@ -115,8 +111,7 @@ class Game:
                 break
             print("You have" + str(tunrs) + "turns remaining")
             tunrs -= 1
-
-                    
+             
     def make_guess(self):
        
         while True:
@@ -155,8 +150,6 @@ class Game:
             return True
         return False
 
-
-
     def round_tally(self, player_hit, computer_hit):
         """
         Output the scores after each round
@@ -180,20 +173,17 @@ class Game:
               f"{self.scores['player']} . Computer:{self.scores['computer']}")
         print("-" * 45)
             
-         
-
     def show_info(self):
         
         print("-" * 45)
         print(" Welcome to the great battle of BATTLESHIPS!!")
         print(f" Board Size: {self.size}. Number of ships: {self.num_ships}.")
-        print(" You have 10 tunrs to the sunk 5 shipts")
+        print(" You have 10 tunrs to the sunk 5 ships")
         print(" Top left corner is row: 0, col: 0")
         print("-" * 45)
-       
-
 
 # Ask the user what grid size to use, validate the size, then start a new game
+
 
 game = Game(size=10, num_ships=5,)
 game.start()
