@@ -1,51 +1,62 @@
+# Battleship is a terminal game programed with Python, which runs in the Code Institute mock terminal on Heroku.
+
+## Battleship is a funny and a widely-known board game in which the goal is to destroy the opposing player's fleet. It all depends on the luck of your finding shots to initially hit your targets.
+
 # Single Battleships
-![Screenshot 2021-10-09 181748](https://user-images.githubusercontent.com/83575427/136668317-77d4dd25-c86a-44e1-beac-5af03ee35b3a.png)
-### User can will add 5 ships ramdonmly and the you will have to sink them.
+![Capture](https://user-images.githubusercontent.com/83575427/181646108-e9445c9f-407b-49dc-a9f5-3ed8954e12dc.JPG)
+
+### The computer place 5 ships randomly in both board and you will have to sunk the 5 ships before the 10 tunrs are over!
+## ENjoy.
 https://single-battleships.herokuapp.com/
 
 # How to play
-
-### In this version the game will ask for you name firts and after will ask you to place 5 ships on the board, the will hidde ramdomly and you have to find them.
-
-### In thes game you only finish after you Hit the 5 ramdon ships. is a bit boring because you always win, however is the best i could do this time. lot of improments to make.
+### In this version of Battleship the user starts the game by first typing the size of the grid they would like to play on. By typing in the name of the player, the game will then fire on and the user will have the ability to strike their first move by guessing and calling out coordinates to find out the computer ships and sink them. The game will randomly generate and populate 5 ships on each board. The grid always start on: 0 row and 0 columns. Guesses are marked on the board with an X and hits are marked by * . To gain a win, you have to sink all the computer's ships before your run out of tunrs or the computer sunk all your ships
 
 # Features
-![Screenshot 2021-10-09 172856](https://user-images.githubusercontent.com/83575427/136668353-b7afc35e-6433-422d-9b48-2eb2c0969b16.png)
+![startgame](https://user-images.githubusercontent.com/83575427/181641997-dd07e999-cb15-4778-89ce-472b6455b5d4.JPG)
+
 ## Exiting Features
-![Screenshot 2021-10-09 172934](https://user-images.githubusercontent.com/83575427/136668371-f01e9e3d-fd0c-4b50-9722-9e9cf01f63aa.png)
-![Screenshot 2021-10-09 173047](https://user-images.githubusercontent.com/83575427/136668379-fee84f2c-6259-4659-bb81-c50f9ad1698c.png)
-![Screenshot 2021-10-09 173200](https://user-images.githubusercontent.com/83575427/136668384-b92cd7c8-2ca3-4116-acc6-f6209037681b.png)
-![Screenshot 2021-10-09 173429](https://user-images.githubusercontent.com/83575427/136668391-32ad6bc6-18fc-418e-ae69-95443f9cbc30.png)
+![Boards](https://user-images.githubusercontent.com/83575427/181642040-04b4bdda-4114-4ac3-baa6-a893f0e5b3dd.JPG)
+![guesees](https://user-images.githubusercontent.com/83575427/181642068-153e3b63-c4e1-44b9-838d-40e285100361.JPG)
+![endgame](https://user-images.githubusercontent.com/83575427/181642077-b023ec12-e653-47c7-b09a-c64558a10ab6.JPG)
 ### Randon 
 
 
 Board Generation
-  ### Ships are place buy you and the ramdonly place
-  ### You cannot see where the ships are place
-  ### No scoret system (to be improve)
-# Input validation and erros-cheking
-  ### only capital letters
-  ### you must enter 1 number and 1 letter
+  ### Ships are place randomly by the computer
+  ### Scoring system and Turns sytem.
+# Input validation and errors-cheking
+  ### you must enter A colunm and a row both with number from 0 to 9
   ### you cannot enter the same guess twice
-  ### nothing outside the grid of 5
+  ### nothing outside the grid of 9
 
 # Furture Features
-  ### Allow playes to play with 2 boards
-  ### Play agains the computer
-  ### Maximo amout of turns
+  ### count down timer
   ### Ships larger than 1x1
-  ### Welcome messager more apealing 
-  ### Play again button
+  ### music in the Game
 
 # Data Model
-  ### Is a very simple board and game nothing i will decide no to add class this time as the code was Bugging the whole time and i need to learn a bit more about classes and other python ideas and data
+# I decided to use two classes for the game model. One Board class and one Game class.
+
+# Board Class
+
+#### self.size = To set the board size
+#### self.num_ships = To set number of ships in-game
+#### self.player = Bolian indicate if the board belongs to a player or computer
+#### self.guesses = List of passed guesses
+#### self.populate = Creates in-memory board with the players ship
+# Game Class
+
+### self.size = To set the board size
+### self.num_ships = To set number of ships in-game
+### self.scores = Set score when ship is sunk
 
 # Testing
   #### Passed the code through a PEP* linter and confirmed there no problems
   ### Tested in my local terminal and the code isntitute Heroki terminal
 
 # Bugs
- ### The improve part of the game was way to many of them so i have to simplyfied for now.
+ ### Still a bug went you run the debugging the system stops on the name input part, i could find the way to fix that bug.
 
 
 # Remaining Bugs
@@ -56,18 +67,40 @@ Board Generation
 # Valitor Testing 
   ### PeP8
   ### No errors
-![Screenshot 2021-10-09 182639](https://user-images.githubusercontent.com/83575427/136668434-03ea2eaf-2b79-465e-8f40-a6650b0c8845.png)
 
+![Pip8](https://user-images.githubusercontent.com/83575427/181643364-448aaaa0-3323-45ee-8ed2-734fac510282.JPG)
+
+# Languages, Frameworks, IDE, Libraries and Programs
+ # Python:
+
+### The programming language Python was used.
+  # Python random library:
+
+### random.randint was used to generate random integer numbers in the game.
+# GitHub:
+
+### GitHub was used to store the projects code after being pushed from Git.
+
+# Gitpod:
+
+### Was used to complement the development and write my project and push all commits through integrated "git" to Github.
+# Heroku:
+
+#### Was used for deployment of the project live in the cloud.
 # Deployment
-### This project was deployrd usin code institute Heroku
+### This project was published and deplyed using the Code Institute mock teminal for Heroku
+### Steps for deployment:
+### Fork or clone this repository
+### Create a new Heroku application
+#### Set the buildpack in the setting to "heroku/python" and "heroku/nodejs"
+#### In the "Deploy" menu chose "Deployment method" GitHub
+### Connect and choose the repository in the "App connected to GitHub"
+### Choose either "Automatic deployment" = which means that every push to the branch you specify will deploy a new version of this app
+### "Manual deploy" = this will deploy the current state/version of the branch
 
-# Steps for deployment:
-### fork or clone this repository
-### Create a New Heroku app
-### Set the Buildbacks to python and NodeJA ins that orde
-### Link The Heroku app to the repositoy
-### Click on Deploy
+## The live link can be found here -https://single-battleships.herokuapp.com/
 
 # Credits
-
+### Code Institute idea from Project Portfolio 3 
+### Code Institute project 3 Scope video
 ### To all code institute Studen support
